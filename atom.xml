@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yuxiaoy1.github.io/blog</id>
     <title>Gridea</title>
-    <updated>2020-10-28T05:43:26.936Z</updated>
+    <updated>2020-10-28T05:44:09.694Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yuxiaoy1.github.io/blog"/>
     <link rel="self" href="https://yuxiaoy1.github.io/blog/atom.xml"/>
@@ -11,7 +11,7 @@
     <icon>https://yuxiaoy1.github.io/blog/favicon.ico</icon>
     <rights>All rights reserved 2020, Gridea</rights>
     <entry>
-        <title type="html"><![CDATA[Hello Yuxiaoy！]]></title>
+        <title type="html"><![CDATA[Hello Yuxiaoy~~~]]></title>
         <id>https://yuxiaoy1.github.io/blog/post/hello-gridea/</id>
         <link href="https://yuxiaoy1.github.io/blog/post/hello-gridea/">
         </link>
