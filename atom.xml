@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yuxiaoy1.github.io/blog</id>
-    <title>Gridea</title>
-    <updated>2020-10-28T05:46:35.157Z</updated>
+    <title>Yuxiaoy的博客</title>
+    <updated>2020-10-28T13:18:18.413Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yuxiaoy1.github.io/blog"/>
     <link rel="self" href="https://yuxiaoy1.github.io/blog/atom.xml"/>
     <subtitle>温故而知新</subtitle>
     <logo>https://yuxiaoy1.github.io/blog/images/avatar.png</logo>
     <icon>https://yuxiaoy1.github.io/blog/favicon.ico</icon>
-    <rights>All rights reserved 2020, Gridea</rights>
+    <rights>All rights reserved 2020, Yuxiaoy的博客</rights>
     <entry>
         <title type="html"><![CDATA[Hello Yuxiaoy！]]></title>
         <id>https://yuxiaoy1.github.io/blog/post/hello-gridea/</id>
@@ -17,12 +17,10 @@
         </link>
         <updated>2018-12-11T16:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...<br>
-以上为摘要</p>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...<br>
-以上为摘要</p>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
 <!-- more -->
 <p><a href="https://github.com/getgridea/gridea">Github</a><br>
 <a href="https://gridea.dev/">Gridea 主页</a><br>
