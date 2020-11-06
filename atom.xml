@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://localhost:4000</id>
+    <id>https://yuxiaoy1.github.io/blog</id>
     <title>Yuxiaoy的博客</title>
-    <updated>2020-11-06T15:07:59.386Z</updated>
+    <updated>2020-11-06T15:43:46.311Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="http://localhost:4000"/>
-    <link rel="self" href="http://localhost:4000/atom.xml"/>
+    <link rel="alternate" href="https://yuxiaoy1.github.io/blog"/>
+    <link rel="self" href="https://yuxiaoy1.github.io/blog/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>http://localhost:4000/images/avatar.png</logo>
-    <icon>http://localhost:4000/favicon.ico</icon>
+    <logo>https://yuxiaoy1.github.io/blog/images/avatar.png</logo>
+    <icon>https://yuxiaoy1.github.io/blog/favicon.ico</icon>
     <rights>All rights reserved 2020, Yuxiaoy的博客</rights>
     <entry>
         <title type="html"><![CDATA[使用GitHub Actions部署静态网站]]></title>
-        <id>http://localhost:4000/post/deploy-static-sites-with-github-actions/</id>
-        <link href="http://localhost:4000/post/deploy-static-sites-with-github-actions/">
+        <id>https://yuxiaoy1.github.io/blog/post/deploy-static-sites-with-github-actions/</id>
+        <link href="https://yuxiaoy1.github.io/blog/post/deploy-static-sites-with-github-actions/">
         </link>
         <updated>2020-11-05T14:56:20.000Z</updated>
         <content type="html"><![CDATA[<ul>
@@ -22,6 +22,6 @@
 <li>同步到Gitee并自动更新Gitee Pages</li>
 <li>顺便修个bug，提个PR（已merge）</li>
 </ul>
-]]></content>
+<!-- more -->]]></content>
     </entry>
 </feed>
