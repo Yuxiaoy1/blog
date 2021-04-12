@@ -6,7 +6,7 @@
 <title>
     同步 vs 异步 Python | Yuxiaoy的博客
 </title>
-<link rel="shortcut icon" href="https://blog.yuxiaoy.com/favicon.ico?v=1618241316584">
+<link rel="shortcut icon" href="https://blog.yuxiaoy.com/favicon.ico?v=1618241590917">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://blog.yuxiaoy.com/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="同步 vs 异步 Python | Yuxiaoy的博客 - Atom Feed" href="https://blog.yuxiaoy.com/atom.xml">
@@ -32,7 +32,7 @@
         <div class="main-content">
             <div class="site-header">
     <a href="https://blog.yuxiaoy.com">
-  <img class="avatar" src="https://blog.yuxiaoy.com/images/avatar.png?v=1618241316584" alt="">
+  <img class="avatar" src="https://blog.yuxiaoy.com/images/avatar.png?v=1618241590917" alt="">
   </a>
     <h1 class="site-title">
         Yuxiaoy的博客
@@ -155,9 +155,9 @@
 <p>一个高度优化的异步循环在做上下文切换时可能比操作系统更有效率，但根据我的经验，要想看到明显的性能提升，你必须在真正的高并发下运行。对于大多数应用来说，我认为同步和异步上下文切换之间的性能差异并不明显。</p>
 <h3 id="可扩展性">可扩展性</h3>
 <p>我认为 ”异步更快“ 的说法的来源是，异步应用往往能更有效地利用 CPU，这是因为异步应用的扩展能力要比同步应用好得多，而且方式更灵活。</p>
-<p>考虑一下，如果上图所示的同步服务器同时接收一百个请求，会发生什么情况。这个服务器一次不能处理超过四个请求，所以这些请求中的大部分会在队列中停留一段时间，然后才能得到分配的 worker 进行处理。</p>
+<p>考虑一下，如果上图所示的同步服务器同时接收 100 个请求，会发生什么情况。这个服务器一次不能处理超过 4 个请求，所以这些请求中的大部分会在队列中停留一段时间，然后才能得到分配的 worker 进行处理。</p>
 <p>而异步服务器则不同，异步服务器会立即创建 100 个任务（如果使用混合模式，则 4 个异步 worker 中的每一个都有 25 个任务）。使用异步服务器，所有的请求都会立即开始处理，而无需等待（针对实际情况而言，可能会有其他瓶颈使处理变慢，例如对活动数据库连接数的限制）。</p>
-<p>如果这一百个任务需要密集使用 CPU 的计算能力，那么同步方案和异步方案的性能会差不多，因为 CPU 的运行速度是固定的，Python 执行代码的速度总是一样的，应用程序要做的工作也是一样的。但如果任务需要做大量的 I/O 操作，那么同步服务器只做 4 个并发请求，可能无法达到很高的 CPU 利用率。而另一方面，异步服务器因为可以并行运行所有的 100 个请求，因此更能充分地利用 CPU。</p>
+<p>如果这 100 个任务需要密集使用 CPU 的计算能力，那么同步方案和异步方案的性能会差不多，因为 CPU 的运行速度是固定的，Python 执行代码的速度总是一样的，应用程序要做的工作也是一样的。但如果任务需要做大量的 I/O 操作，那么同步服务器只做 4 个并发请求，可能无法达到很高的 CPU 利用率。而另一方面，异步服务器因为可以并行运行所有的 100 个请求，因此更能充分地利用 CPU。</p>
 <p>你可能会疑惑，为什么不能同时运行 100 个同步 worker，这样两个服务器的并发量是一样的。考虑到每个 worker 需要有自己的 Python 解释器和所有与之相关的资源，再加上一个单独的应用程序副本，你的服务器和你的应用程序的大小将决定你可以运行多少个 worker 实例，但一般来说，这个数字不会很高。而异步任务则是非常轻量级的，而且都是在一个worker 进程的上下文中运行，所以它们有明显的优势。</p>
 <p>因此请牢记，只有在给定的场景下，异步才有可能比同步快：</p>
 <ul>
@@ -166,12 +166,12 @@
 <li>你需要关注单位时间内处理的平均请求数。如果你只看单个请求的处理时间，你不会看到很大的差异，异步甚至可能会稍微慢一些，因为有更多的并发任务在争夺 CPU。</li>
 </ul>
 <h2 id="总结">总结</h2>
-<p>我希望这篇文章能澄清一些关于异步代码的困惑和误解，我希望你能记住两个要点：</p>
+<p>我希望这篇文章能澄清一些关于异步代码的困惑和误解，我希望你能记住以下两点：</p>
 <ul>
 <li>一个异步应用只有在高负载下才会比同步应用做得更好；</li>
 <li>多亏了 greenlet，即使你写的是普通的代码，使用 Flask 或 Django 等传统框架，也可以从异步中获益。</li>
 </ul>
-<p>如果你想更详细地了解异步系统是如何工作的，可以在 YouTube 上查看 Miguel 的 PyCon 演讲 <a href="%5Bhttps://www.youtube.com/watch?v=iG6fr81xHKA%5D(https://www.youtube.com/watch?v=iG6fr81xHKA)">Asynchronous Python for the Complete Beginner</a>。</p>
+<p>如果你想更详细地了解异步系统是如何工作的，可以在 YouTube 上查看 Miguel Grinberg 的 PyCon 演讲 <a href="%5Bhttps://www.youtube.com/watch?v=iG6fr81xHKA%5D(https://www.youtube.com/watch?v=iG6fr81xHKA)">Asynchronous Python for the Complete Beginner</a>。</p>
 
                                     </div>
                                     <div class="toc-container">
