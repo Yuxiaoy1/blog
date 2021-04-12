@@ -1,27 +1,124 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://blog.yuxiaoy.com</id>
-    <title>Yuxiaoy的博客</title>
-    <updated>2021-04-12T15:28:38.736Z</updated>
-    <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://blog.yuxiaoy.com"/>
-    <link rel="self" href="https://blog.yuxiaoy.com/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
-    <logo>https://blog.yuxiaoy.com/images/avatar.png</logo>
-    <icon>https://blog.yuxiaoy.com/favicon.ico</icon>
-    <rights>All rights reserved 2021, Yuxiaoy的博客</rights>
-    <entry>
-        <title type="html"><![CDATA[同步 vs 异步 Python]]></title>
-        <id>https://blog.yuxiaoy.com/post/sync-vs-async-python/</id>
-        <link href="https://blog.yuxiaoy.com/post/sync-vs-async-python/">
-        </link>
-        <updated>2021-04-11T12:09:52.000Z</updated>
-        <summary type="html"><![CDATA[<blockquote>
-<p>本文翻译自 <a href="https://blog.miguelgrinberg.com/post/sync-vs-async-python-what-is-the-difference">https://blog.miguelgrinberg.com/post/sync-vs-async-python-what-is-the-difference</a></p>
-</blockquote>
-<p>你有没有听人说过异步 Python 代码比 &quot;普通&quot;（或同步）Python 代码快？这怎么可能呢？在本文中，我将尝试解释什么是异步，以及它与普通 Python 代码的区别。</p>
-]]></summary>
-        <content type="html"><![CDATA[<blockquote>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>
+    同步 vs 异步 Python | Yuxiaoy的博客
+</title>
+<link rel="shortcut icon" href="https://blog.yuxiaoy.com/favicon.ico?v=1618241316584">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://blog.yuxiaoy.com/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="同步 vs 异步 Python | Yuxiaoy的博客 - Atom Feed" href="https://blog.yuxiaoy.com/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+<script src='https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js'></script>
+
+        <meta name="description" content="
+本文翻译自 https://blog.miguelgrinberg.com/post/sync-vs-async-python-what-is-the-difference
+
+你有没有听人说过异步 Python 代码比 &quot;普通&..." />
+        <meta name="keywords" content="Python,Async" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+        <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+        <style>
+            .vpower {
+                display: none;
+            }
+        </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="main-content">
+            <div class="site-header">
+    <a href="https://blog.yuxiaoy.com">
+  <img class="avatar" src="https://blog.yuxiaoy.com/images/avatar.png?v=1618241316584" alt="">
+  </a>
+    <h1 class="site-title">
+        Yuxiaoy的博客
+    </h1>
+    <p class="site-description">
+        温故而知新
+    </p>
+    <div class="menu-container">
+        
+            
+                    <a href="/" class="menu">
+                        首页
+                    </a>
+                    
+                        
+            
+                    <a href="/archives" class="menu">
+                        归档
+                    </a>
+                    
+                        
+            
+                    <a href="/tags" class="menu">
+                        标签
+                    </a>
+                    
+                        
+            
+                    <a href="/post/about" class="menu">
+                        关于
+                    </a>
+                    
+                        
+    </div>
+    <div class="social-container">
+        
+            
+                <a href="https://www.github.com/yuxiaoy1" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+                
+                    
+            
+                <a href="https://twitter.com/yuxiaoy1" target="_blank">
+          <i class="ri-twitter-line"></i>
+        </a>
+                
+                    
+            
+                <a href="https://weibo.com/u/1802713725" target="_blank">
+          <i class="ri-weibo-line"></i>
+        </a>
+                
+                    
+            
+                    
+            
+                    
+    </div>
+</div>
+                <div class="post-detail">
+                    <article class="post">
+                        <h2 class="post-title">
+                            同步 vs 异步 Python
+                        </h2>
+                        <div class="post-info">
+                            <span>
+                            2021-04-11
+                        </span>
+                            <span>
+                            12 min read
+                        </span>
+                            
+                                <a href="https://blog.yuxiaoy.com/tag/RjRu8we3c/" class="post-tag">
+                            # Python
+                        </a>
+                                
+                                <a href="https://blog.yuxiaoy.com/tag/z-kYtd3IyJ/" class="post-tag">
+                            # Async
+                        </a>
+                                
+                        </div>
+                        
+                                <div class="post-content-wrapper">
+                                    <div class="post-content">
+                                        <blockquote>
 <p>本文翻译自 <a href="https://blog.miguelgrinberg.com/post/sync-vs-async-python-what-is-the-difference">https://blog.miguelgrinberg.com/post/sync-vs-async-python-what-is-the-difference</a></p>
 </blockquote>
 <p>你有没有听人说过异步 Python 代码比 &quot;普通&quot;（或同步）Python 代码快？这怎么可能呢？在本文中，我将尝试解释什么是异步，以及它与普通 Python 代码的区别。</p>
@@ -75,6 +172,92 @@
 <li>多亏了 greenlet，即使你写的是普通的代码，使用 Flask 或 Django 等传统框架，也可以从异步中获益。</li>
 </ul>
 <p>如果你想更详细地了解异步系统是如何工作的，可以在 YouTube 上查看 Miguel 的 PyCon 演讲 <a href="%5Bhttps://www.youtube.com/watch?v=iG6fr81xHKA%5D(https://www.youtube.com/watch?v=iG6fr81xHKA)">Asynchronous Python for the Complete Beginner</a>。</p>
-]]></content>
-    </entry>
-</feed>
+
+                                    </div>
+                                    <div class="toc-container">
+                                        <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5%E7%9A%84%E5%90%AB%E4%B9%89">同步和异步的含义</a></li>
+<li><a href="#%E5%BC%82%E6%AD%A5-python-%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%A1%88">异步 Python 的两种方案</a></li>
+<li><a href="#%E5%BC%82%E6%AD%A5%E6%AF%94%E5%90%8C%E6%AD%A5%E5%BF%AB%E5%90%97">异步比同步快吗？</a>
+<ul>
+<li><a href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2">上下文切换</a></li>
+<li><a href="#%E5%8F%AF%E6%89%A9%E5%B1%95%E6%80%A7">可扩展性</a></li>
+</ul>
+</li>
+<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
+</ul>
+</li>
+</ul>
+
+                                    </div>
+                                </div>
+                    </article>
+                </div>
+
+                
+                        <!-- Valine comments segment -->
+                        <div id="vcomments"></div>
+                        <script>
+                            new Valine({
+                                el: '#vcomments',
+                                appId: 'S6oeaHVxl9gWMePWrAvYo5CQ-MdYXbMMI',
+                                appKey: 'uYCSzPqmg9qLdJWd2JRUIVlC'
+                            })
+                        </script>
+
+                        
+
+                                                        <div class="site-footer">
+  Stay fool, stay hungry
+  <a class="rss" href="https://blog.yuxiaoy.com/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+        </div>
+    </div>
+
+    <script>
+        hljs.initHighlightingOnLoad()
+
+        let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+        // This should probably be throttled.
+        // Especially because it triggers during smooth scrolling.
+        // https://lodash.com/docs/4.17.10#throttle
+        // You could do like...
+        // window.addEventListener("scroll", () => {
+        //    _.throttle(doThatStuff, 100);
+        // });
+        // Only not doing it here to keep this Pen dependency-free.
+
+        window.addEventListener("scroll", event => {
+            let fromTop = window.scrollY;
+
+            mainNavLinks.forEach((link, index) => {
+                let section = document.getElementById(decodeURI(link.hash).substring(1));
+                let nextSection = null
+                if (mainNavLinks[index + 1]) {
+                    nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+                }
+                if (section.offsetTop <= fromTop) {
+                    if (nextSection) {
+                        if (nextSection.offsetTop > fromTop) {
+                            link.classList.add("current");
+                        } else {
+                            link.classList.remove("current");
+                        }
+                    } else {
+                        link.classList.add("current");
+                    }
+                } else {
+                    link.classList.remove("current");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
