@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.yuxiaoy.com</id>
     <title>Yuxiaoy的博客</title>
-    <updated>2021-04-12T15:33:16.471Z</updated>
+    <updated>2021-04-12T15:47:14.633Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.yuxiaoy.com"/>
     <link rel="self" href="https://blog.yuxiaoy.com/atom.xml"/>
@@ -46,15 +46,15 @@
 <p>如果你有兴趣写一个异步 Web 应用程序，有很多基于协程的异步框架可供选择，包括 <a href="https://docs.aiohttp.org/en/stable/">aiohttp</a>，<a href="https://sanic.readthedocs.io/en/latest/">sanic</a>，<a href="https://fastapi.tiangolo.com/">FastAPI</a> 和 <a href="https://www.tornadoweb.org/en/stable/">Tornado</a>。</p>
 <p>很多人不知道的是，协程只是 Python 中可用来写异步代码的两种方法之一。第二种方法是基于一个名为 <a href="https://greenlet.readthedocs.io/en/latest/">greenlet</a>  的包，你可以使用 pip 进行安装。Greenlet 与协程类似，它也允许 Python 函数暂停执行，并在稍后的时间恢复执行，但它们实现的方式完全不同，这意味着 Python 中的异步生态系统被分为两个大类。</p>
 <p>在异步开发中，协程和 greenlet 之间有趣的区别在于，前者需要特定的关键字和Python语言的特性才能工作，而后者则不需要。我的意思是，基于协程的应用程序需要使用非常特殊的语法来编写，而基于 greenlet 的应用程序看起来就像普通的 Python 代码一样。这是非常酷的，因为在某些条件下，它可以使同步代码异步执行，这是基于协程的解决方案如 <code>asyncio</code> 所无法做到的。</p>
-<p>那么在 greenlet 方面，<code>asyncio</code> 相当于什么呢？我知道有三个基于 greenlet 的 async 包: <a href="%5Bhttp://www.gevent.org/%5D(http://www.gevent.org/)">Gevent</a>, <a href="%5Bhttps://eventlet.net/%5D(https://eventlet.net/)">Eventlet</a> 和 <a href="%5Bhttps://meinheld.org/%5D(https://meinheld.org/)">Meinheld</a>, 虽然最后一个更像是一个 Web 服务器，而不是一个通用的异步库。它们都有自己的异步循环的实现，并且它们提供了一个有趣的 &quot;猴子补丁 &quot;功能，即用基于 greenlet 实现的等效的非阻塞函数来替换 Python 标准库中的阻塞函数，比如那些处理网络请求和线程的函数。如果你有一段想要异步运行的同步代码，这些包可以帮助你实现。</p>
-<p>你一定会对此感到惊讶：据我所知，唯一一个对 greenlet 有明确支持的 Web 框架不是他者，正是 <a href="%5Bhttps://flask.palletsprojects.com/%5D(https://flask.palletsprojects.com/)">Flask</a>。这个框架会自动检测你是否运行在一个 greenlet Web 服务器上，并相应地调整自己，不需要任何配置。这种情况下，请注意不要调用阻塞函数，如果你调用了，那么就用猴子补丁来 &quot;修复 &quot;这些阻塞函数。<br>
-但 Flask 并不是唯一能与 greenlet 良好结合的框架。其他的 Web 框架，如 <a href="%5Bhttps://www.djangoproject.com/%5D(https://www.djangoproject.com/)">Django</a> 和 <a href="%5Bhttps://bottlepy.org/docs/dev/%5D(https://bottlepy.org/docs/dev/)">Bottle</a>，它们没有针对 greenlet 进行适配，但当与 greenlet Web 服务器配对使用时，如果你对阻塞函数进行了猴子补丁处理，也是可以异步运行的。</p>
+<p>那么在 greenlet 方面，<code>asyncio</code> 相当于什么呢？我知道有三个基于 greenlet 的 async 包: <a href="http://www.gevent.org/">Gevent</a>, <a href="https://eventlet.net/">Eventlet</a> 和 <a href="https://meinheld.org/">Meinheld</a>, 虽然最后一个更像是一个 Web 服务器，而不是一个通用的异步库。它们都有自己的异步循环的实现，并且它们提供了一个有趣的 &quot;猴子补丁 &quot;功能，即用基于 greenlet 实现的等效的非阻塞函数来替换 Python 标准库中的阻塞函数，比如那些处理网络请求和线程的函数。如果你有一段想要异步运行的同步代码，这些包可以帮助你实现。</p>
+<p>你一定会对此感到惊讶：据我所知，唯一一个对 greenlet 有明确支持的 Web 框架不是他者，正是 <a href="https://flask.palletsprojects.com/">Flask</a>。这个框架会自动检测你是否运行在一个 greenlet Web 服务器上，并相应地调整自己，不需要任何配置。这种情况下，请注意不要调用阻塞函数，如果你调用了，那么就用猴子补丁来 &quot;修复 &quot;这些阻塞函数。<br>
+但 Flask 并不是唯一能与 greenlet 良好结合的框架。其他的 Web 框架，如 <a href="https://www.djangoproject.com/">Django</a> 和 <a href="https://bottlepy.org/docs/dev/">Bottle</a>，它们没有针对 greenlet 进行适配，但当与 greenlet Web 服务器配对使用时，如果你对阻塞函数进行了猴子补丁处理，也是可以异步运行的。</p>
 <h2 id="异步比同步快吗">异步比同步快吗？</h2>
 <p>在同步和异步应用程序的性能方面，有一个广为人知的误解：人们认为异步应用比同步应用要快得多。</p>
 <p>我需要澄清这一点，Python 代码无论以同步或异步方式编写，其运行速度都是完全一样的。除了代码之外，还有两个因素会影响并发应用程序的性能：上下文切换和可扩展性。</p>
 <h3 id="上下文切换">上下文切换</h3>
 <p>多个正在运行的任务如何合理地共享 CPU 的计算能力，也就是所谓的上下文切换，会影响应用程序的性能。对于同步应用来说，这项工作是由操作系统来完成的，基本上是一个没有配置或微调选项的黑盒子。对于异步应用，上下文切换是由循环来完成的。</p>
-<p><code>asyncio</code> 提供的默认循环实现是用 Python 编写的，被认为效率不高。<a href="%5Bhttps://github.com/MagicStack/uvloop%5D(https://github.com/MagicStack/uvloop)">uvloop</a> 提供了一个替代循环，部分代码采用 C 语言实现，以达到更好的性能。Gevent 和 Meinheld 使用的事件循环也是用 C 语言编写的，Eventlet 使用的则是用 Python 编写的。</p>
+<p><code>asyncio</code> 提供的默认循环实现是用 Python 编写的，被认为效率不高。<a href="https://github.com/MagicStack/uvloop">uvloop</a> 提供了一个替代循环，部分代码采用 C 语言实现，以达到更好的性能。Gevent 和 Meinheld 使用的事件循环也是用 C 语言编写的，Eventlet 使用的则是用 Python 编写的。</p>
 <p>一个高度优化的异步循环在做上下文切换时可能比操作系统更有效率，但根据我的经验，要想看到明显的性能提升，你必须在真正的高并发下运行。对于大多数应用来说，我认为同步和异步上下文切换之间的性能差异并不明显。</p>
 <h3 id="可扩展性">可扩展性</h3>
 <p>我认为 ”异步更快“ 的说法的来源是，异步应用往往能更有效地利用 CPU，这是因为异步应用的扩展能力要比同步应用好得多，而且方式更灵活。</p>
@@ -74,7 +74,7 @@
 <li>一个异步应用只有在高负载下才会比同步应用做得更好；</li>
 <li>多亏了 greenlet，即使你写的是普通的代码，使用 Flask 或 Django 等传统框架，也可以从异步中获益。</li>
 </ul>
-<p>如果你想更详细地了解异步系统是如何工作的，可以在 YouTube 上查看 Miguel Grinberg 的 PyCon 演讲 <a href="%5Bhttps://www.youtube.com/watch?v=iG6fr81xHKA%5D(https://www.youtube.com/watch?v=iG6fr81xHKA)">Asynchronous Python for the Complete Beginner</a>。</p>
+<p>如果你想更详细地了解异步系统是如何工作的，可以在 YouTube 上查看 Miguel Grinberg 的 PyCon 演讲 <a href="https://www.youtube.com/watch?v=iG6fr81xHKA">Asynchronous Python for the Complete Beginner</a>。</p>
 ]]></content>
     </entry>
 </feed>
